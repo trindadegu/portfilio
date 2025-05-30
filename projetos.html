@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Projetos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Trindade</div>
+
+      <div class="nav-controls">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contatos.html">Contatos</a></li>
+        </ul>
+
+        <button id="theme-toggle" aria-label="Trocar tema">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="projetos">
+      <h1>Meus Projetos</h1>
+      <p>Veja abaixo alguns dos projetos que desenvolvi:</p>
+      <ul>
+        <li>✅ Sabores da Terra - Sistema de reservas e cardápio digital</li>
+        <li>✅ Museu dos Videogames - Site interativo sobre consoles</li>
+        <li>✅ Desafio CSS - Projetos visuais com HTML e CSS puros</li>
+        <!-- Adicione mais conforme quiser -->
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
+      toggle.textContent = '☀️';
+    }
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+      toggle.textContent = isLight ? '☀️' : '🌙';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

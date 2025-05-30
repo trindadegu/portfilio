@@ -1,0 +1,162 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #111;
+  color: #fff;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-theme {
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+/* Cabeçalho */
+.navbar {
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  color: #fdffff;
+  font-weight: bold;
+}
+
+/* Controles de navegação */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Botão de tema */
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #00ccff;
+}
+
+/* Links de navegação */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #00ccff;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Botão hambúrguer */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: #00ccff;
+  cursor: pointer;
+}
+
+/* Menu responsivo */
+#menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #0a0a0a00;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    padding: 0 10px;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    max-height: 200px;
+    padding: 10px 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-controls {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Conteúdo */
+section {
+  padding: 100px 20px;
+  min-height: 100vh;
+}
+
+/* Tema claro */
+body.light-theme .navbar {
+  background-color: #eaeaea;
+}
+
+body.light-theme .nav-links li a,
+body.light-theme #theme-toggle,
+body.light-theme .logo {
+  color: #007acc;
+}
+
+body.light-theme .nav-links li a::after {
+  background-color: #007acc;
+}
+#sobre {
+  background-image: url('img/code.jpg'); /* ou 'img/code.jpg' se estiver em uma pasta */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: brightness(0.8);
+  padding: 100px 20px;
+  min-height: 100vh;
+}
+
+#sobre h1,
+#sobre p {
+  background-color: rgba(0, 0, 0, 0.6); /* fundo semi-transparente para melhor leitura */
+  padding: 20px;
+  border-radius: 10px;
+}

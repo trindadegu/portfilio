@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Sobre</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Trindade</div>
+
+      <div class="nav-controls">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contatos.html">Contatos</a></li>
+        </ul>
+
+        <button id="theme-toggle" aria-label="Trocar tema">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h1>Sobre Mim</h1>
+      <p>Olá! Sou estudante do SENAI na área de Desenvolvimento de Sistemas, onde iniciei minha jornada em 2025. Minha paixão por programação começou com a influência dos meus irmãos, que também seguiram esse caminho, e desde então venho me dedicando ao aprendizado e à prática constante.
+Durante meu curso, estou desenvolvendo habilidades essenciais para o mercado de tecnologia, como HTML, CSS, Figma e prototipagem de interfaces. Também estou aprendendo sobre metodologias ágeis, sistemas operacionais, Kanban, além de fundamentos importantes como tipografia, gestalt, UI/UX design e o uso de GitHub para versionamento de código.
+Estou empolgado com cada novo conhecimento e projeto, sempre buscando crescer como desenvolvedor e contribuir com soluções criativas e funcionais.</p>
+    </section>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
+      toggle.textContent = '☀️';
+    }
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+      toggle.textContent = isLight ? '☀️' : '🌙';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
